@@ -21,32 +21,35 @@ int main(int argc, char** argv) {
     // Dichiara le variabili locali
     studente studente;
     int i;
+    FILE *puntaFile;
     
     // Codice per l'inserimento, da parte dell'utente, dei dati e del salvataggio
     // nel file
-    FILE *puntaFile;
     puntaFile = fopen("elenco.dat", "w");
-    
-    printf("Inserisci i dati per %d studenti:", N);
-    for(i=0;i<N;i++) {
-        printf("\nInserisci il nome: ");
-        scanf("%s", studente.nome);
-        fprintf(puntaFile, "%s \n", studente.nome);
-        
-        printf("Inserisci il cognome: ");
-        scanf("%s", studente.cognome);
-        fprintf(puntaFile, "%s \n", studente.cognome);
-        
-        printf("Inserisci l'eta': ");
-        scanf("%d", &(studente.eta));
-        fprintf(puntaFile, "%d \n", studente.eta);
-        
-        printf("Inserisci la classe: ");
-        scanf("%s", studente.classe);
-        fprintf(puntaFile, "%s \n", studente.classe);
+    if(puntaFile) {
+        printf("Inserisci i dati per %d studenti:", N);
+        for(i=0;i<N;i++) {
+            printf("\nInserisci il nome: ");
+            scanf("%s", studente.nome);
+            fprintf(puntaFile, "%s \n", studente.nome);
+
+            printf("Inserisci il cognome: ");
+            scanf("%s", studente.cognome);
+            fprintf(puntaFile, "%s \n", studente.cognome);
+
+            printf("Inserisci l'eta': ");
+            scanf("%d", &(studente.eta));
+            fprintf(puntaFile, "%d \n", studente.eta);
+
+            printf("Inserisci la classe: ");
+            scanf("%s", studente.classe);
+            fprintf(puntaFile, "%s \n", studente.classe);
+        }
+
+        fclose(puntaFile);
+    }else {
+        printf("\nIl file non si puo' aprire!");
     }
-    
-    fclose(puntaFile);
     
     return (EXIT_SUCCESS);
 }
