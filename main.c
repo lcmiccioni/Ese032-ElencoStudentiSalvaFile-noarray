@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
     // Codice per l'inserimento, da parte dell'utente, dei dati e del salvataggio
     // nel file
     FILE *puntaFile;
-    puntaFile = fopen("prova.txt", "w");
+    puntaFile = fopen("elenco.dat", "w");
     
     printf("Inserisci i dati per %d studenti:", N);
     for(i=0;i<N;i++) {
